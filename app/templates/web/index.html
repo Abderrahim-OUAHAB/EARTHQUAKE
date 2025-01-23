@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Tivo is a HTML landing page template built with Bootstrap to help you crate engaging presentations for SaaS apps and convert visitors into users.">
+    <meta name="author" content="Inovatik">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+	<meta property="og:site_name" content="" /> <!-- website name -->
+	<meta property="og:site" content="" /> <!-- website link -->
+	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
+	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
+	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
+	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+	<meta property="og:type" content="article" />
+
+    <!-- Website Title -->
+    <title>Home</title>
+    
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
+   <!-- Styles -->
+   <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+   <link href="{{ url_for('static', filename='css/fontawesome-all.css') }}" rel="stylesheet">
+   <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+   <link rel="icon" href="{{ url_for('static', filename='images/log1.png') }}">
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+	<!-- Favicon  -->
+    <link rel="icon" href="images/favicon.png">
+</head>
+<body data-spy="scroll" data-target=".fixed-top">
+    
+    <!-- Preloader -->
+	<div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <!-- end of preloader -->
+    
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+            <div class="container">
+    
+                <!-- Text Logo - Use this if you don't have a graphic logo -->
+                <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Tivo</a> -->
+    
+                <!-- Image Logo -->
+                <a class="navbar-brand logo-image" href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='images/log2.png') }}" alt="alternative" style="height:50px;width:50px">
+                </a>
+                
+                
+                <!-- Mobile Menu Toggle Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-awesome fas fa-bars"></span>
+                    <span class="navbar-toggler-awesome fas fa-times"></span>
+                </button>
+                <!-- end of mobile menu toggle button -->
+    
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="{{ url_for('index') }}">ACCUEIL <span class="sr-only">(current)</span></a>
+                        </li>     <!-- Dropdown Menu -->          
+                     
+    
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="{{ url_for('commencer') }}">PREDIRE</a>
+                        </li>
+                    
+    
+                   
+    
+                     
+                    </ul>
+                
+                </div>
+            </div> <!-- end of container -->
+        </nav> <!-- end of navbar -->
+        <!-- end of navigation -->
+
+
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="header-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-xl-5">
+                        <div class="text-container">
+                            <h1>Bienvenue ! </h1>
+                            <p class="p-large"> Analysez les données sismiques et prédisez les séismes futurs</p>
+                            <a class="btn-solid-lg page-scroll" href="{{ url_for('commencer') }}">COMMENCER</a>
+                        </div> <!-- end of text-container -->
+                    </div> <!-- end of col -->
+                    <div class="col-lg-6 col-xl-7">
+                        <div class="image-container">
+                            <div class="img-wrapper">
+           
+
+                            </div> <!-- end of img-wrapper -->
+                        </div> <!-- end of image-container -->
+                    </div> <!-- end of col -->
+                </div> <!-- end of row -->
+            </div> <!-- end of container -->
+        </div> <!-- end of header-content -->
+    </header> <!-- end of header -->
+    <svg class="header-frame" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 310"><defs><style>.cls-1{fill:#5f4def;}</style></defs><title>header-frame</title><path class="cls-1" d="M0,283.054c22.75,12.98,53.1,15.2,70.635,14.808,92.115-2.077,238.3-79.9,354.895-79.938,59.97-.019,106.17,18.059,141.58,34,47.778,21.511,47.778,21.511,90,38.938,28.418,11.731,85.344,26.169,152.992,17.971,68.127-8.255,115.933-34.963,166.492-67.393,37.467-24.032,148.6-112.008,171.753-127.963,27.951-19.26,87.771-81.155,180.71-89.341,72.016-6.343,105.479,12.388,157.434,35.467,69.73,30.976,168.93,92.28,256.514,89.405,100.992-3.315,140.276-41.7,177-64.9V0.24H0V283.054Z"/></svg>
+    <!-- end of header -->
+
+
+   
+<!-- Section Dynamique : Informations sur les Séismes -->
+<div class="seismic-info">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="above-heading">INFORMATIONS</div>
+                <h2 class="h2-heading">Statistiques des Séismes Récents</h2>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+        
+        <div class="row">
+            <!-- Derniers séismes -->
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Derniers Séismes</h4>
+                        <ul id="latest-earthquakes" class="data-list">
+                            <!-- Données insérées dynamiquement -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- end of card -->
+
+            <!-- Séisme le plus destructeur -->
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Séisme le Plus Destructeur</h4>
+                        <p id="strongest-earthquake">Chargement des données...</p>
+                    </div>
+                </div>
+            </div>
+            <!-- end of card -->
+
+            <!-- Aperçu des activités récentes -->
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Aperçu des Activités Récentes</h4>
+                        <p id="summary">Chargement des données...</p>
+                    </div>
+                </div>
+            </div>
+            <!-- end of card -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div> <!-- end of seismic-info -->
+<!-- end of dynamic section -->
+
+
+
+                                    
+   
+    <!-- Newsletter -->
+    <div class="form">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-container">
+                        <div id="map"></div>
+                      
+
+                    
+
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="icon-container">
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook-f fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-pinterest-p fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-instagram fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin-in fa-stack-1x"></i>
+                            </a>
+                        </span>
+                    </div> <!-- end of col -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of form -->
+    <!-- end of newsletter -->
+
+
+  <!-- Footer -->
+<svg class="footer-frame" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 79"><defs><style>.cls-2{fill:#5f4def;}</style></defs><title>footer-frame</title><path class="cls-2" d="M0,72.427C143,12.138,255.5,4.577,328.644,7.943c147.721,6.8,183.881,60.242,320.83,53.737,143-6.793,167.826-68.128,293-60.9,109.095,6.3,115.68,54.364,225.251,57.319,113.58,3.064,138.8-47.711,251.189-41.8,104.012,5.474,109.713,50.4,197.369,46.572,89.549-3.91,124.375-52.563,227.622-50.155A338.646,338.646,0,0,1,1920,23.467V79.75H0V72.427Z" transform="translate(0 -0.188)"/></svg>
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="footer-col first">
+                    <h4>À propos</h4>
+                    <p class="p-small">Cette application fournit des données sismiques en temps réel et des analyses pour mieux comprendre les activités tectoniques.</p>
+                </div>
+            </div> <!-- end of col -->
+            <div class="col-md-4">
+                <div class="footer-col middle">
+                    <h4>Liens Utiles</h4>
+                    <ul class="list-unstyled li-space-lg p-small">
+                        <li class="media">
+                            <i class="fas fa-square"></i>
+                            <div class="media-body">Voir les statistiques détaillées des séismes sur <a class="white" href="https://earthquake.usgs.gov/">USGS Earthquake Program</a></div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-square"></i>
+                            <div class="media-body">Consultez les <a class="white" href="terms-conditions.html">Conditions Générales</a> et la <a class="white" href="privacy-policy.html">Politique de Confidentialité</a></div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-square"></i>
+                            <div class="media-body">Informations sur les mesures de sécurité en cas de séismes sur <a class="white" href="https://www.ready.gov/earthquakes">Ready.gov</a></div>
+                        </li>
+                    </ul>
+                </div>
+            </div> <!-- end of col -->
+            <div class="col-md-4">
+                <div class="footer-col last">
+                    <h4>Contact</h4>
+                    <ul class="list-unstyled li-space-lg p-small">
+                        <li class="media">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="media-body">Bureau central, Paris, France</div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-envelope"></i>
+                            <div class="media-body"><a class="white" href="mailto:contact@seismicapp.com">contact@seismicapp.com</a></div>
+                        </li>
+                        <li class="media">
+                            <i class="fas fa-globe"></i>
+                            <div class="media-body"><a class="white" href="https://seismicapp.com">www.seismicapp.com</a></div>
+                        </li>
+                    </ul>
+                </div> 
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div> <!-- end of footer -->  
+<!-- end of footer -->
+
+
+
+    <!-- Copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="p-small">Copyright © 2025 QUAKEX</a></p>
+                </div> <!-- end of col -->
+            </div> <!-- enf of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of copyright --> 
+    <!-- end of copyright -->
+    
+    	
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script> <!-- Popper tooltip library for Bootstrap -->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script> <!-- Bootstrap framework -->
+    <script src="{{ url_for('static', filename='js/jquery.easing.min.js') }}"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="{{ url_for('static', filename='js/swiper.min.js') }}"></script> <!-- Swiper for image and text sliders -->
+    <script src="{{ url_for('static', filename='js/jquery.magnific-popup.js') }}"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="{{ url_for('static', filename='js/validator.min.js') }}"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script> <!-- Custom scripts -->
+
+    <script>
+        // Initialiser la carte
+        var map = L.map('map').setView([20, 0], 2);
+
+        // Ajouter les tuiles OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Fonction de callback pour les données JSONP
+        function eqfeed_callback(data) {
+            data.features.forEach(function(feature) {
+                var coords = feature.geometry.coordinates;
+                var props = feature.properties;
+
+                // Ajouter un marqueur pour chaque séisme
+                L.marker([coords[1], coords[0]])
+                    .addTo(map)
+                    .bindPopup(`<b>Magnitude:</b> ${props.mag}<br><b>Lieu:</b> ${props.place}`);
+            });
+        }
+
+        // Ajouter dynamiquement le script JSONP pour récupérer les données
+        var script = document.createElement('script');
+        script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
+        document.getElementsByTagName('head')[0].appendChild(script);
+    </script>
+    <script>
+        // API URL
+        const apiUrl = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson';
+    
+        // Récupérer les données de l'API
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const earthquakes = data.features;
+    
+                // Trier les séismes par magnitude (plus grand au plus petit)
+                const strongest = earthquakes.reduce((max, quake) => quake.properties.mag > max.properties.mag ? quake : max, earthquakes[0]);
+    
+                // Mettre à jour le séisme le plus destructeur
+                document.getElementById('strongest-earthquake').innerHTML = `
+                    Magnitude : ${strongest.properties.mag}<br>
+                    Lieu : ${strongest.properties.place}<br>
+                    Date : ${new Date(strongest.properties.time).toLocaleString()}
+                `;
+    
+                // Afficher les 5 derniers séismes
+                const latestEarthquakes = earthquakes.slice(0, 5);
+                const latestList = document.getElementById('latest-earthquakes');
+                latestEarthquakes.forEach(quake => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `
+                        Magnitude : ${quake.properties.mag} - 
+                        Lieu : ${quake.properties.place} - 
+                        Date : ${new Date(quake.properties.time).toLocaleString()}
+                    `;
+                    latestList.appendChild(listItem);
+                });
+    
+                // Aperçu des activités récentes
+                const totalEarthquakes = earthquakes.length;
+                const avgMagnitude = (
+                    earthquakes.reduce((sum, quake) => sum + quake.properties.mag, 0) / totalEarthquakes
+                ).toFixed(2);
+                document.getElementById('summary').innerHTML = `
+                    Total : ${totalEarthquakes} séismes enregistrés cette semaine.<br>
+                    Magnitude moyenne : ${avgMagnitude}
+                `;
+            })
+            .catch(error => {
+                console.error('Erreur lors de la récupération des données :', error);
+                document.getElementById('summary').innerHTML = 'Impossible de charger les données.';
+            });
+    </script> 
+</body>
+</html>
