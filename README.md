@@ -1,5 +1,5 @@
-
 ![Description de l'image](Screen Shot 2025-01-23 at 21.21.28.png)
+
 Ce projet vise à analyser un ensemble de données sismiques couvrant la période de 1990 à 2023. L'objectif est d'explorer, de visualiser et d'interpréter les tendances et les caractéristiques des séismes à travers le monde. Les résultats de cette analyse peuvent contribuer à une meilleure compréhension des risques sismiques et à l'amélioration des stratégies de prévention.
 
 Objectifs
